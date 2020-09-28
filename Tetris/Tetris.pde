@@ -1,5 +1,5 @@
 //Declare global variables associated with Tetromino Figure parameters
-int x,y,type,rotation,score,lastPress;
+int x,y,type,rotation,score,lastPress,nextFigure=(int) random(1,7);
 int w = 400, h = 640;
 boolean stateGame=true,buttonIsPressed;
 //Array that contains the different rotations of tetromino figure
@@ -16,7 +16,7 @@ color [] colorList = {#B9FFF0,#B9FFF0,#FFCA00,#A5FF00,#FF0D00,#6384FF,#F9FF35,#B
 byte[][] matrixBoard = new byte[16][10];
 
 void settings(){
-    size(w,h);
+    size(w+200,h);
 }
 
 void setup(){
@@ -51,12 +51,11 @@ void game(){
       }
     }else{
         fill(0,0,0,1);
-        rect(0,0,400,640);
+        rect(0,0,width,height);
         fill(0);
         textAlign(CENTER);
-        text("Gracias por jugar",width/2,100); 
-        text("Tu puntaje es:",width/2,300); 
-        text(score,width/2,350); 
+        textSize(36);
+        text("Gracias por jugar",w/2,h/2); 
     }
 }
 
@@ -79,7 +78,8 @@ void dropTetromino(){
 void newTetromino(){
   x=200;
   y=0;
-  type = (int) random(1,7);
+  type = nextFigure;
+  nextFigure = (int) random(1,7);
 }
 
 //Method to verify if a movement is correct
@@ -180,6 +180,24 @@ void drawBoard(){
     for (int j = 0; j <640 ; j = j + 40){
         line(0,j,400,j);
     }
+    fill(38,114,237);
+    rect(400,0,200,640);
+    textSize(24);
+    fill(255);
+    textAlign(LEFT);
+    text("Score",460,60);
+    text(score,480,100);
+    showNextFigure();
+}
+
+void showNextFigure(){
+  square(420,160,160);
+    fill(colorList[nextFigure]);
+    for(int i=0; i<=15;i++){ 
+      if((T[nextFigure][0] & (1<<15 - i)) != 0){
+        square(520-(((15-i)%4)*30),240-((15-i)/4)*30,30);
+      }
+    }
 }
 
 //Method to add tetromino figure to the 2D Matrix of bytes
@@ -226,11 +244,11 @@ return array;
 void startScreenDisplay(){
     background(255);
     fill(0);
-    buttonDisplay(w/2,h/2);
+    buttonDisplay(width/2,height/2);
     textSize(24);
     textAlign(CENTER);
-    text("Alejandro Higuera Castro",w/2,2*h/3);
-    text("Prof. JP Charalambos",w/2,2*h/3+50);
+    text("Alejandro Higuera Castro",width/2,2*height/3);
+    text("Prof. JP Charalambos",width/2,2*height/3+50);
 }
 
 void buttonDisplay(int x,int y){
