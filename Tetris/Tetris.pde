@@ -1,6 +1,8 @@
+//Declare global variables associated with Tetromino Figure parameters
 int x,y,type,rotation,score,lastPress;
 int w = 400, h = 640;
 boolean stateGame=true,buttonIsPressed;
+//Array that contains the different rotations of tetromino figure
 int [][] T = {{},{15,4369,15,4369},
               {116,785,23,2188},
               {54,1122,54,1122},
@@ -8,6 +10,7 @@ int [][] T = {{},{15,4369,15,4369},
               {113,275,71,1604},
               {51,51,51,51},
               {114,610,39,562}};
+//colorList by type of tetromino figure
 color [] colorList = {#B9FFF0,#B9FFF0,#FFCA00,#A5FF00,#FF0D00,#6384FF,#F9FF35,#B279FF};
 //Declares a blank matrix 2D of bytes
 byte[][] matrixBoard = new byte[16][10];
@@ -28,6 +31,7 @@ void draw(){
    }
 }
 
+//Main Function of the Game
 void game(){
     if(stateGame){
       drawBoard();
@@ -56,6 +60,7 @@ void game(){
     }
 }
 
+//Function to draw active tetromino figure
 void drawTetromino(){
   fill(colorList[type]);
   for(int i=0; i<=15;i++){ 
@@ -65,16 +70,19 @@ void drawTetromino(){
   }
 }
 
+//Method to drop tetromino
 void dropTetromino(){
   y = y + 1;
 }
 
+//Method to restart tetromino's values
 void newTetromino(){
   x=200;
   y=0;
   type = (int) random(1,7);
 }
 
+//Method to verify if a movement is correct
 boolean verifyMovement(String type,int newValue){
   boolean correctMovement=false;
   switch(type){
@@ -102,38 +110,7 @@ boolean verifyMovement(String type,int newValue){
   return correctMovement;
 }
 
-boolean positionVerify(int newRotation,int newY){
-  boolean available = true, yLimit = true;
-  int[][] arrayPos = new int[2][4];
-  int pos=0;
-  for(int i=0; i<=15;i++){ 
-  if((T[type][newRotation] & (1<<15 - i)) != 0){
-    arrayPos[0][pos]=x-(((15-i)%4)*40);
-    arrayPos[1][pos]=newY-(((15-i)/4)*40);
-    pos++;
-  }
-  }
-  for(pos=0; pos<=3;pos++){
-    if(arrayPos[1][pos]>h-40){
-      available = false;
-    }if(arrayPos[0][pos]>w-40){
-      available = false;
-    }if(arrayPos[0][pos]<0){
-      available = false;
-    }if(arrayPos[1][pos]<0){
-      yLimit = false;
-    }
-  }
-  if(yLimit & available){
-    for(pos=0; pos<=3;pos++){
-      if(matrixBoard[(int)Math.ceil(arrayPos[1][pos]/40.0)][(int)Math.ceil(arrayPos[0][pos]/40.0)]!=0){
-        available = false;
-      }
-    }
-  }
-  return available;
-}
-
+//Function to get the key of the keyboard and apply modifications
 void tetrominoModify(int keyCode){
         switch(keyCode){
           case UP:
@@ -159,6 +136,39 @@ void tetrominoModify(int keyCode){
        }
 }
 
+//Function to verify existing blocks
+boolean positionVerify(int newRotation,int newY){
+  boolean available = true, yLimit = true;
+  int[][] arrayPos = new int[2][4];
+  int pos=0;
+  for(int i=0; i<=15;i++){ 
+    if((T[type][newRotation] & (1<<15 - i)) != 0){
+      arrayPos[0][pos]=x-(((15-i)%4)*40);
+      arrayPos[1][pos]=newY-(((15-i)/4)*40);
+      pos++;
+    }
+  }
+  for(pos=0; pos<=3;pos++){
+    if(arrayPos[1][pos]>h-40){
+      available = false;
+    }if(arrayPos[0][pos]>w-40){
+      available = false;
+    }if(arrayPos[0][pos]<0){
+      available = false;
+    }if(arrayPos[1][pos]<0){
+      yLimit = false;
+    }
+  }
+  if(yLimit & available){
+    for(pos=0; pos<=3;pos++){
+      if(matrixBoard[(int)Math.ceil(arrayPos[1][pos]/40.0)][(int)Math.ceil(arrayPos[0][pos]/40.0)]!=0){
+        available = false;
+      }
+    }
+  }
+  return available;
+}
+
 //Function that draws the board and its grid
 void drawBoard(){
     fill(255);
@@ -172,6 +182,7 @@ void drawBoard(){
     }
 }
 
+//Method to add tetromino figure to the 2D Matrix of bytes
 void addTetromino(){
   for(int i=0; i<=15;i++){ 
     if((T[type][rotation] & (1<<15 - i)) != 0){
@@ -237,7 +248,7 @@ void buttonDisplay(int x,int y){
     }
 }
 
-//Function to verify if one row is full
+//Function to verify if one row is full and delete row if is full
 void verifyAndDrop(){
   for(int row=0;row<16;row++){
     boolean full = true;
