@@ -1,5 +1,6 @@
-int x,y,type,rotation,lastPress;
+int x,y,type,rotation,score,lastPress;
 int w = 400, h = 640;
+boolean stateGame=true,buttonIsPressed;
 int [][] T = {{},{15,4369,15,4369},
               {116,785,23,2188},
               {54,1122,54,1122},
@@ -16,25 +17,43 @@ void settings(){
 }
 
 void setup(){
-  frameRate(2);
   newTetromino();    
 }
 
 void draw(){
-  drawBoard();
-  drawAll();
-  drawTetromino();
-  if(verifyMovement("drop",y+40)){
-    dropTetromino();
-  }else{
-    addTetromino();
-    //verifyAndDropRows();
-    newTetromino();
-  }
-  if(keyPressed & (millis()-lastPress>250)){
-        tetrominoModify(keyCode);
-        lastPress = millis();
-  }
+  if(buttonIsPressed){
+     game();
+   }else{
+     startScreenDisplay();
+   }
+}
+
+void game(){
+    if(stateGame){
+      drawBoard();
+      drawAll();
+      drawTetromino();
+      if(verifyMovement("drop",y+1)){
+          dropTetromino();
+      }else{
+          addTetromino();
+          verifyAndDrop();
+          newTetromino();
+          score++;
+      }
+      if(keyPressed & (millis()-lastPress>500)){
+          tetrominoModify(keyCode);
+          lastPress = millis();
+      }
+    }else{
+        fill(0,0,0,1);
+        rect(0,0,400,640);
+        fill(0);
+        textAlign(CENTER);
+        text("Gracias por jugar",width/2,100); 
+        text("Tu puntaje es:",width/2,300); 
+        text(score,width/2,350); 
+    }
 }
 
 void drawTetromino(){
@@ -47,7 +66,7 @@ void drawTetromino(){
 }
 
 void dropTetromino(){
-  y = y + 40;
+  y = y + 1;
 }
 
 void newTetromino(){
@@ -107,8 +126,7 @@ boolean positionVerify(int newRotation,int newY){
   }
   if(yLimit & available){
     for(pos=0; pos<=3;pos++){
-      println(arrayPos[1][pos]/40,arrayPos[0][pos]/40);
-      if(matrixBoard[arrayPos[1][pos]/40][arrayPos[0][pos]/40]!=0){
+      if(matrixBoard[(int)Math.ceil(arrayPos[1][pos]/40.0)][(int)Math.ceil(arrayPos[0][pos]/40.0)]!=0){
         available = false;
       }
     }
@@ -156,7 +174,12 @@ void drawBoard(){
 void addTetromino(){
   for(int i=0; i<=15;i++){ 
     if((T[type][rotation] & (1<<15 - i)) != 0){
-      matrixBoard[(y-((15-i)/4)*40)/40][(x-(((15-i)%4)*40))/40] = (byte) type;
+      //Verify if the figure is in the roof of the board
+      if((y-((15-i)/4)*40)<=0){
+        stateGame=false;
+      }if(stateGame){
+        matrixBoard[(y-((15-i)/4)*40)/40][(x-(((15-i)%4)*40))/40] = (byte) type;
+      }
     }
   }
 }
@@ -186,4 +209,53 @@ int[] xMinMax(int x){
 }
 int[] array = {min,max};
 return array;
+}
+
+void startScreenDisplay(){
+    background(255);
+    fill(0);
+    buttonDisplay(w/2,h/2);
+    textSize(24);
+    textAlign(CENTER);
+    text("Alejandro Higuera Castro",w/2,2*h/3);
+    text("Prof. JP Charalambos",w/2,2*h/3+50);
+}
+
+void buttonDisplay(int x,int y){
+    pushStyle();
+    fill(255);
+    rect(x-60,y-20,100,40,7);
+    popStyle();
+    textSize(24);
+    textAlign(CENTER);
+    text("Play",x-10,y+10);
+    if(mousePressed & (mouseX >= (x-60)) & (mouseX<=(x-60+100) & (mouseY>=(y-20)) & (mouseY<=(y-20+40)))){
+        buttonIsPressed = true;
+    }else{
+        buttonIsPressed = false;
+    }
+}
+
+void verifyAndDrop(){
+  for(int row=0;row<16;row++){
+    boolean full = true;
+    for(int pos=0;pos<10;pos++){
+      if(matrixBoard[row][pos]==0){
+        full = false;
+        break;
+      }
+    }
+    if(full){
+      byte[][] copyMB = matrixBoard;
+      for(int nRow=row;nRow>=0;nRow--){
+        if(nRow>0){
+          matrixBoard[nRow] = copyMB[nRow-1];
+        }if(nRow==0){
+          for(int pos=0;pos<10;pos++){
+            matrixBoard[nRow][pos] = 0;
+          }
+        }
+      }
+    }
+  }
 }
