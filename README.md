@@ -1,2 +1,2 @@
-# TetrisPOO2020
+# TetrisOOP2020
 Tetris in Processing for Java.
