@@ -142,8 +142,8 @@ void tetrominoModify(int keyCode){
               }
               break;
           case DOWN:
-              if(verifyMovement("drop",y+1)){
-                y = y+1;
+              if(verifyMovement("drop",y+4)){
+                y = y+4;
               }
               break;
           case LEFT:
@@ -158,7 +158,8 @@ void tetrominoModify(int keyCode){
               break;
        }
 }
-//Function that draws the grid
+
+//Function that draws the board and its grid
 void drawBoard(){
     fill(255);
     rect(0,0,400,640);
@@ -236,6 +237,7 @@ void buttonDisplay(int x,int y){
     }
 }
 
+//Function to verify if one row is full
 void verifyAndDrop(){
   for(int row=0;row<16;row++){
     boolean full = true;
