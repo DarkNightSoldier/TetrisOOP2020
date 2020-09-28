@@ -259,10 +259,12 @@ void verifyAndDrop(){
       }
     }
     if(full){
+      //Make a copy of the actual matrix
       byte[][] copyMB = matrixBoard;
       for(int nRow=row;nRow>=0;nRow--){
         if(nRow>0){
           matrixBoard[nRow] = copyMB[nRow-1];
+        //To remove the row, we fill the row with 0's
         }if(nRow==0){
           for(int pos=0;pos<10;pos++){
             matrixBoard[nRow][pos] = 0;
