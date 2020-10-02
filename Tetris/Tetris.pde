@@ -1,6 +1,8 @@
 //Declare global variables associated with Tetromino Figure parameters
-int x,y,type,rotation,score,lastPress,nextFigure=(int) random(1,7);
+int x,y,type,rotation,score,lastPress,linesAtTime,lines,nextFigure=(int) random(1,7);
+//Declare the size of the board
 int w = 400, h = 640;
+//Declare global variable of the state of the game and button variable
 boolean stateGame=true,buttonIsPressed;
 //Array that contains the different rotations of tetromino figure
 int [][] T = {{},{15,4369,15,4369},
@@ -37,7 +39,7 @@ void game(){
       drawBoard();
       drawAll();
       drawTetromino();
-      if(verifyMovement("drop",y+1)){
+      if(positionVerify(rotation,x,y+1)){
           dropTetromino();
       }else{
           addTetromino();
@@ -82,54 +84,26 @@ void newTetromino(){
   nextFigure = (int) random(1,7);
 }
 
-//Method to verify if a movement is correct
-boolean verifyMovement(String type,int newValue){
-  boolean correctMovement=false;
-  switch(type){
-    case "drop":
-      if(positionVerify(rotation,newValue)){
-        correctMovement=true;
-      }
-      break;
-    case "right":
-      if(xMinMax(x+40)[1]<=w-40){
-        correctMovement=true;
-      }
-      break;
-    case "left":
-      if(xMinMax(x-40)[0]>=0){
-        correctMovement=true;
-      }
-      break;
-    case "rotation":
-      if(positionVerify(newValue,y)){
-        correctMovement=true;
-      }
-      break;
-  }
-  return correctMovement;
-}
-
 //Function to get the key of the keyboard and apply modifications
 void tetrominoModify(int keyCode){
         switch(keyCode){
           case UP:
-              if(verifyMovement("rotation",(rotation+1)%4)){
+              if(positionVerify((rotation+1)%4,x,y)){
                 rotation = (rotation+1)%4;
               }
               break;
           case DOWN:
-              if(verifyMovement("drop",y+4)){
+              if(positionVerify(rotation,x,y+1)){
                 y = y+4;
               }
               break;
           case LEFT:
-              if(verifyMovement("left",x-40)){
+              if(positionVerify(rotation,x-40,y)){
                 x = x-40;
               }
               break;
           case RIGHT:
-              if(verifyMovement("right",x+40)){
+              if(positionVerify(rotation,x+40,y)){
                 x = x+40;
               }
               break;
@@ -137,13 +111,13 @@ void tetrominoModify(int keyCode){
 }
 
 //Function to verify existing blocks
-boolean positionVerify(int newRotation,int newY){
+boolean positionVerify(int newRotation, int newX, int newY){
   boolean available = true, yLimit = true;
   int[][] arrayPos = new int[2][4];
   int pos=0;
   for(int i=0; i<=15;i++){ 
     if((T[type][newRotation] & (1<<15 - i)) != 0){
-      arrayPos[0][pos]=x-(((15-i)%4)*40);
+      arrayPos[0][pos]=newX-(((15-i)%4)*40);
       arrayPos[1][pos]=newY-(((15-i)/4)*40);
       pos++;
     }
@@ -151,10 +125,13 @@ boolean positionVerify(int newRotation,int newY){
   for(pos=0; pos<=3;pos++){
     if(arrayPos[1][pos]>h-40){
       available = false;
+      break;
     }if(arrayPos[0][pos]>w-40){
       available = false;
+      break;
     }if(arrayPos[0][pos]<0){
       available = false;
+      break;
     }if(arrayPos[1][pos]<0){
       yLimit = false;
     }
@@ -191,7 +168,7 @@ void drawBoard(){
 }
 
 void showNextFigure(){
-  square(420,160,160);
+    //square(420,160,160);
     fill(colorList[nextFigure]);
     for(int i=0; i<=15;i++){ 
       if((T[nextFigure][0] & (1<<15 - i)) != 0){
@@ -234,11 +211,11 @@ int[] xMinMax(int x){
       }
       if(x-(((15-i)%4)*40)>max){
         max = x-(((15-i)%4)*40);
+      }
     }
   }
-}
-int[] array = {min,max};
-return array;
+  int[] array = {min,max};
+  return array;
 }
 
 void startScreenDisplay(){
@@ -277,6 +254,9 @@ void verifyAndDrop(){
       }
     }
     if(full){
+      //Add 1 line to counter
+      lines++;
+      linesAtTime++;
       //Make a copy of the actual matrix
       byte[][] copyMB = matrixBoard;
       for(int nRow=row;nRow>=0;nRow--){
@@ -291,4 +271,23 @@ void verifyAndDrop(){
       }
     }
   }
+  addToScore();
+}
+
+//Function to increase the score according the number of lines
+void addToScore(){
+    switch(linesAtTime){
+      case 1:
+        score+=100;
+        break;
+      case 2:
+        score+=400;
+        break;
+      case 3:
+        score+=900;
+        break;
+      case 4:
+        score+=1200;
+        break;
+    }
 }
