@@ -14,7 +14,7 @@ int [][] T = {{},{15,4369,15,4369},
               {114,610,39,562}};
 //colorList by type of tetromino figure
 color [] colorList = {#B9FFF0,#B9FFF0,#FFCA00,#A5FF00,#FF0D00,#6384FF,#F9FF35,#B279FF};
-//Declares a blank matrix 2D of bytes
+//Declares a blank 2D array of bytes
 byte[][] matrixBoard = new byte[16][10];
 
 void settings(){
@@ -33,7 +33,7 @@ void draw(){
    }
 }
 
-//Main Function of the Game
+//Main Function of the game
 void game(){
     if(stateGame){
       drawBoard();
@@ -45,7 +45,6 @@ void game(){
           addTetromino();
           verifyAndDrop();
           newTetromino();
-          score++;
       }
       if(keyPressed & (millis()-lastPress>500)){
           tetrominoModify(keyCode);
@@ -81,7 +80,7 @@ void newTetromino(){
   x=200;
   y=0;
   type = nextFigure;
-  nextFigure = (int) random(1,7);
+  nextFigure = (int) random(1,8);
 }
 
 //Function to get the key of the keyboard and apply modifications
@@ -110,7 +109,7 @@ void tetrominoModify(int keyCode){
        }
 }
 
-//Function to verify existing blocks
+//Function to verify if position is avaialable according to existing blocks
 boolean positionVerify(int newRotation, int newX, int newY){
   boolean available = true, yLimit = true;
   int[][] arrayPos = new int[2][4];
@@ -149,26 +148,26 @@ boolean positionVerify(int newRotation, int newX, int newY){
 //Function that draws the board and its grid
 void drawBoard(){
     fill(255);
-    rect(0,0,400,640);
+    rect(0,0,w,h);
     noFill();
-    for (int i = 0; i <400 ; i = i + 40){
-        line(i,0,i,640);
+    for (int i = 0; i <w ; i = i + 40){
+        line(i,0,i,h);
     }
-    for (int j = 0; j <640 ; j = j + 40){
-        line(0,j,400,j);
+    for (int j = 0; j <h ; j = j + 40){
+        line(0,j,w,j);
     }
     fill(38,114,237);
-    rect(400,0,200,640);
+    rect(w,0,200,h);
     textSize(24);
     fill(255);
     textAlign(LEFT);
-    text("Score",460,60);
-    text(score,480,100);
+    text("Score",w+60,60);
+    text(score,w+80,100);
     showNextFigure();
 }
 
+//Function to draw next figure
 void showNextFigure(){
-    //square(420,160,160);
     fill(colorList[nextFigure]);
     for(int i=0; i<=15;i++){ 
       if((T[nextFigure][0] & (1<<15 - i)) != 0){
@@ -177,7 +176,7 @@ void showNextFigure(){
     }
 }
 
-//Method to add tetromino figure to the 2D Matrix of bytes
+//Method to add tetromino figure to the 2D array of bytes
 void addTetromino(){
   for(int i=0; i<=15;i++){ 
     if((T[type][rotation] & (1<<15 - i)) != 0){
@@ -191,10 +190,11 @@ void addTetromino(){
   }
 }
 
+//Function to draw all tetrominos who have fallen
 void drawAll(){
-  for (int row = 0; row < this.matrixBoard.length;row++){
-    for (int col = 0; col < this.matrixBoard[row].length;col++){
-     if(this.matrixBoard[row][col]!=0){
+  for (int row = 0; row < matrixBoard.length;row++){
+    for (int col = 0; col < matrixBoard[row].length;col++){
+     if(matrixBoard[row][col]!=0){
        fill(colorList[matrixBoard[row][col]]);
        square(col*40,row*40,40);
      }
@@ -202,6 +202,7 @@ void drawAll(){
  }
 }
 
+//Function to get min and max in x of an array codified in bits
 int[] xMinMax(int x){
   int max=0,min=0;
   for(int i=0; i<=15;i++){ 
@@ -218,6 +219,7 @@ int[] xMinMax(int x){
   return array;
 }
 
+//Function to display game initial screen
 void startScreenDisplay(){
     background(255);
     fill(0);
@@ -228,6 +230,7 @@ void startScreenDisplay(){
     text("Prof. JP Charalambos",width/2,2*height/3+50);
 }
 
+//Function to display the button and know if it is pressed
 void buttonDisplay(int x,int y){
     pushStyle();
     fill(255);
@@ -290,4 +293,5 @@ void addToScore(){
         score+=1200;
         break;
     }
+    linesAtTime=0;
 }
