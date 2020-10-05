@@ -15,7 +15,7 @@
 1. [Introducción](#introducción)
 2. [Objetivo](#objetivo)
 3. [¿Cómo jugar?](#cómo-jugar)
-4. [Puntuación](#3-puntuacion)
+4. [Puntuación](#puntuación)
 5. [¿Cómo se representa cada uno de los tetrominos activos?](#4-instalación-del-módulo)
 6. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#5-algunas-funcionalidades)
 
@@ -35,3 +35,36 @@ Una vez inicie el juego usted deberá manipular la posición de los tetrominos q
 - Presionar la tecla ⬇️, le permitirá aumentar la velocidad con que cae el tetromino.
 - Presionar la tecla ⬆️, le permitirá rotar 90° 🔄 el tetromino mientras cae.
 - Presionar la tecla ➡️, le permitirá mover el tetromino una celda hacia la derecha
+
+## Puntuación
+La puntuación se otorgará de acuerdo al número de líneas que se eliminan a la vez de acuerdo con la siguiente tabla:
+
+| Número de líneas eliminadas al mismo tiempo 	| Puntaje 	|
+|:-------------------------------------------:	|:-------:	|
+|                      1                      	|   100   	|
+|                      2                      	|   400   	|
+|                      3                      	|   900   	|
+|                  4 (Tetris)                 	|   1200  	|
+
+## Codificación del tetromino activo
+
+El tetromino activo se representa mediante un entero equivalente a su representación en bits matricial de tamaño 4x4, donde 0 es un bloque vacío y 1 es un bloque lleno.
+
+**Ejemplo:**
+¿Cómo se representa el tetromino J con la rotación 3?
+
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="25%"></p>
+
+1. Encontramos su representacion matricial 4x4
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="10%"></p>
+
+2. Codificamos su representacion matricial en binario en el formato Big Endian
+
+0000 0000 0100 0111
+
+3. Encontramos el entero equivalente al número binario
+
+Así nuestro tetromino se representa como el número **71**.
+
+## Desplazamiento del tetromino
+
