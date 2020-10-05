@@ -21,6 +21,8 @@
 7. [¿Cómo dibujamos nuestro tetromino activo?](#dibujo-del-tetromino-activo)
 8. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#representación-de-los-tetrominos-que-han-caído)
 
+9. [Referencias](#referencias)
+
 ## Introducción
 
 Como primera entrega para el curso de Programación Orientada a Objetos desarrollé el juego de Tetris en Processing para Java bajo el paradigma de programación estructurada.
@@ -138,3 +140,9 @@ Los tetrominos que ya han caído se almacenan en una variable global que es un a
 - El arreglo 2D va acorde al número de columnas y número de filas de nuestro tablero (16 filas x 10 columnas).
 - El arreglo 2D está a una escala de 1:40 respecto al tablero que es de tamaño 400x640 pixeles.
 - Para agregar los tetrominos a esta matrix se usa la función **addTetromino()**, este toma los valores con los que dibujamos cada cuadro/bloque del tetromino y los escala dividiendolos por 40.
+
+## Referencias
+
+1. Tetris Scoring - Tetris Wiki Fandom. Recuperado de: https://tetris.fandom.com/wiki/Scoring
+
+2. Jean Pierre Charalambos - Tetris Code Snippet https://gist.github.com/nakednous
