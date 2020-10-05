@@ -59,7 +59,7 @@ Los desplazamientos se manejan bajo el Framerate por default de Processing (60 f
 
 **Nota** Para conocer si estos desplazamientos son posibles se genera un arreglo con las posiciones del tetromino activo y se verifica si estas están disponibles en el array 2D matrixBoard.
 
-<p align="center"><img src="https://alejandrohiguera.codes/POO2020/posmatrix.png" width="90%"></p>
+<p align="center"><img src="https://alejandrohiguera.codes/POO2020/posmatrix.png" width="75%"></p>
 
 ## Codificación del tetromino activo
 
