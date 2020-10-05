@@ -73,3 +73,11 @@ Los desplazamientos se manejan bajo el Framerate por default de Processing (60 f
 - **Desplazamiento hacia abajo** El tetromino se desplaza pixel a pixel.
 - **Desplazamiento hacia la derecha o hacia arriba** El tetromino se desplaza celda a celda es decir de 40 pixeles en 40 pixeles.
 - **Desplazamiento rápido hacia abajo** El tetromino se desplaza a una razón de 40 pixeles.
+
+## Representación de los tetrominos que han caído
+
+Los tetrominos que ya han caído se almacenan en una variable global que es un arreglo bidimensional de 16x10 llamado **matrixBoard**.
+
+- El arreglo 2D va acorde al número de columnas y número de filas de nuestro tablero (16 filas x 10 columnas).
+- El arreglo 2D está a una escala de 1:40 respecto al tablero que es de tamaño 600x400.
+- Para agregar los tetrominos a esta matrix se usa la función **addTetromino()**, este toma los valores con los que dibujamos cada cuadro/bloque del tetromino, los escala con  dividiendolos por 40 y usando la función techo/ceil.
