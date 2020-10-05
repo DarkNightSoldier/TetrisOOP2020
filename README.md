@@ -51,9 +51,12 @@ La puntuación se otorgará de acuerdo al número de líneas que se eliminan a l
 El tetromino activo se representa mediante un entero equivalente a su representación en bits matricial de tamaño 4x4, donde 0 es un bloque vacío y 1 es un bloque lleno.
 
 **Ejemplo:**
-¿Cómo se representa el tetromino j con la rotación 3?
+¿Cómo se representa el tetromino J con la rotación 3?
 
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="25%"></p>
+
+1. Encontramos su representacion matricial 4x4
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="25%"></p>
 
 
 ## Desplazamiento del tetromino
