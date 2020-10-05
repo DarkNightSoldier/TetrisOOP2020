@@ -108,7 +108,7 @@ void drawTetromino(){
 **Nota:** 
 - La matriz codificada en bytes a la que accedemos usando T[type][rotation] es leída de **¡Abajo hacia arriba!** por eso se hace la resta 15-i.
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/orden.png" width="30%"></p>
-- ```T[type][rotation] & (1<<15 - i)) != 0)``` El uso de esta máscara nos permite saber si una celda de la matriz está con 1 o 0.
+- <code>T[type][rotation] & (1<<15 - i)) != 0)</code> El uso de esta máscara nos permite saber si una celda de la matriz está con 1 o 0.
 
 **Ejemplo del funcionamiento de la función drawTetromino():**
 
