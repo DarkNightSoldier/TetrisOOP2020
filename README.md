@@ -11,6 +11,7 @@
 ## Contenido
 
 1. [Introducción](#1-introducción)
-3. [¿Cómo jugar?](#2-como-jugar)
-2. [¿Cómo se representa cada uno de los tetrominos?](#2-instalación-del-módulo)
-3. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#3-algunas-funcionalidades)
+2. [¿Cómo jugar?](#2-como-jugar)
+3- [Puntuación](#3-puntuacion)
+3. [¿Cómo se representa cada uno de los tetrominos?](#4-instalación-del-módulo)
+4. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#5-algunas-funcionalidades)
