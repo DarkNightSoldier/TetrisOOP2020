@@ -74,7 +74,11 @@ El tetromino activo se representa mediante un entero equivalente a su representa
 
 3. Encontramos el entero equivalente al número binario
 
-Así nuestro tetromino se representa como el número **71**. Esta representación la tome del codeSnippet enviado por el profesor Jean Pierre Charalambos.
+Así nuestro tetromino se representa como el número **71**. Esta representación la tome del Code Snippet enviado por el profesor Jean Pierre Charalambos.
+
+## Dibujo del tetromino activo
+
+<p align="center"><img src="https://alejandrohiguera.codes/POO2020/rotations.png" width="100%"></p>
 
 ## Representación de los tetrominos que han caído
 
