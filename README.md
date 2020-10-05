@@ -68,3 +68,8 @@ Así nuestro tetromino se representa como el número **71**.
 
 ## Desplazamiento del tetromino
 
+Los desplazamientos se manejan bajo el Framerate por default de Processing (60 fps).
+
+- **Desplazamiento hacia abajo** El tetromino se desplaza pixel a pixel.
+- **Desplazamiento hacia la derecha o hacia arriba** El tetromino se desplaza celda a celda es decir de 40 pixeles en 40 pixeles.
+- **Desplazamiento rápido hacia abajo** El tetromino se desplaza a una razón de 40 pixeles.
