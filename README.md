@@ -34,3 +34,4 @@ Una vez inicie el juego usted deberá manipular la posición de los tetrominos q
 - Presionar la tecla ⬅️, le permitirá mover el tetromino una celda hacia la izquierda.
 - Presionar la tecla ⬇️, le permitirá doblar la velocidad con la cae el tetromino.
 - Presionar la tecla ⬆️, le permitirá rotar 90° 🔄 el tetromino mientras cae.
+- Presionar la tecla ➡️, le permitirá mover el tetromino una celda hacia la derecha
