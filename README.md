@@ -12,6 +12,6 @@
 
 1. [Introducción](#1-introducción)
 2. [¿Cómo jugar?](#2-como-jugar)
-3- [Puntuación](#3-puntuacion)
-3. [¿Cómo se representa cada uno de los tetrominos?](#4-instalación-del-módulo)
-4. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#5-algunas-funcionalidades)
+3. [Puntuación](#3-puntuacion)
+4. [¿Cómo se representa cada uno de los tetrominos?](#4-instalación-del-módulo)
+5. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#5-algunas-funcionalidades)
