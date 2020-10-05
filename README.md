@@ -86,7 +86,7 @@ Las variables **type** y **rotation** corresponden a cada una de estas figuras d
 
 <p align="center"><img src="https://alejandrohiguera.codes/POO2020/rotations.png" width="75%"></p>
 
-Estas nos permitirán acceder al arreglo que contiene los enteros correspondientes a cada figura mediante:
+Estas nos permitirán acceder al arreglo 2D que contiene los enteros correspondientes a cada figura mediante:
 
 ```java
 T[type][rotation]
@@ -104,6 +104,9 @@ void drawTetromino(){
   }
 }
 ```
+**Nota:** La matriz codificada en bytes a la que accedemos usando T[type][rotation] es leída de ¡Abajo hacia arriba! por eso se hace la resta 15-i.
+
+**Ejemplo de la función drawTetromino():**
 
 ## Representación de los tetrominos que han caído
 
