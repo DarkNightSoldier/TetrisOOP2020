@@ -12,8 +12,8 @@
 
 ## Contenido
 
-1. [Introducción](#1-introducción)
-2. [Objetivo](#2-Objetivo)
+1. [Introducción](#introducción)
+2. [Objetivo](#objetivo)
 3. [¿Cómo jugar?](#2-como-jugar)
 4. [Puntuación](#3-puntuacion)
 5. [¿Cómo se representa cada uno de los tetrominos activos?](#4-instalación-del-módulo)
@@ -26,3 +26,7 @@ Como primera entrega para el curso de Programación Orientada a Objetos desarrol
 ## Objetivo
 
 - Repasar los conceptos de programación estructurada, según lo descrito en [Tetris - Wikipedia Article](https://en.wikipedia.org/wiki/Tetris).
+
+## ¿Cómo jugar?
+
+Una vez inicie el juego usted deberá manipular la posición de los tetrominos ayudado de las teclas ⬅️,⬇️,⬆️,➡️ de tal manera que se puedan lograr el mayor número de filas con bloques llenos para su posterior eliminación y obtención de un puntaje alto. 
