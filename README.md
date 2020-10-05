@@ -1,2 +1,3 @@
-# TetrisOOP2020
+# Tetris
+
 Tetris in Processing for Java.
