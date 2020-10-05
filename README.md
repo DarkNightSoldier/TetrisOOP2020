@@ -21,7 +21,7 @@
 
 ## Introducción
 
-Como primera entrega para el curso de Programación Orientada a Objetos desarrollé el clásico juego de Tetris en Processing para Java bajo el paradigma de programación estructurada.
+Como primera entrega para el curso de Programación Orientada a Objetos desarrollé el juego de Tetris en Processing para Java bajo el paradigma de programación estructurada.
 
 ## Objetivo
 
