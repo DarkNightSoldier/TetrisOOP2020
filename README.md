@@ -16,8 +16,9 @@
 2. [Objetivo](#objetivo)
 3. [¿Cómo jugar?](#cómo-jugar)
 4. [Puntuación](#puntuación)
-5. [¿Cómo se representa cada uno de los tetrominos activos?](#4-instalación-del-módulo)
-6. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#5-algunas-funcionalidades)
+5. [¿Cómo se desplaza nuestro Tetromino?](#desplazamiento-del-tetromino)
+5. [¿Cómo se representa cada uno de los tetrominos activos?](#codificación-del tetromino-activo
+6. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#representación-de-los-tetrominos-que-han-caído)
 
 ## Introducción
 
@@ -46,6 +47,14 @@ La puntuación se otorgará de acuerdo al número de líneas que se eliminan a l
 |                      3                      	|   900   	|
 |                  4 (Tetris)                 	|   1200  	|
 
+## Desplazamiento del tetromino
+
+Los desplazamientos se manejan bajo el Framerate por default de Processing (60 fps).
+
+- **Desplazamiento hacia abajo** El tetromino se desplaza pixel a pixel.
+- **Desplazamiento hacia la derecha o hacia arriba** El tetromino se desplaza celda a celda es decir de 40 pixeles en 40 pixeles.
+- **Desplazamiento rápido hacia abajo** El tetromino se desplaza a una razón de 40 pixeles.
+
 ## Codificación del tetromino activo
 
 El tetromino activo se representa mediante un entero equivalente a su representación en bits matricial de tamaño 4x4, donde 0 es un bloque vacío y 1 es un bloque lleno.
@@ -65,14 +74,6 @@ El tetromino activo se representa mediante un entero equivalente a su representa
 3. Encontramos el entero equivalente al número binario
 
 Así nuestro tetromino se representa como el número **71**. Esta representación la tome del codeSnippet enviado por el profesor Jean Pierre Charalambos.
-
-## Desplazamiento del tetromino
-
-Los desplazamientos se manejan bajo el Framerate por default de Processing (60 fps).
-
-- **Desplazamiento hacia abajo** El tetromino se desplaza pixel a pixel.
-- **Desplazamiento hacia la derecha o hacia arriba** El tetromino se desplaza celda a celda es decir de 40 pixeles en 40 pixeles.
-- **Desplazamiento rápido hacia abajo** El tetromino se desplaza a una razón de 40 pixeles.
 
 ## Representación de los tetrominos que han caído
 
