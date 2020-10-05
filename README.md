@@ -32,6 +32,6 @@ Como primera entrega para el curso de Programación Orientada a Objetos desarrol
 Una vez inicie el juego usted deberá manipular la posición de los tetrominos que caen en el tablero ayudado de las teclas ⬅️,⬇️,⬆️,➡️ de tal manera que pueda lograr el mayor número de filas con bloques llenos para su posterior eliminación y obtención de un puntaje alto.
 
 - Presionar la tecla ⬅️, le permitirá mover el tetromino una celda hacia la izquierda.
-- Presionar la tecla ⬇️, le permitirá doblar la velocidad con la cae el tetromino.
+- Presionar la tecla ⬇️, le permitirá aumentar la velocidad con que cae el tetromino.
 - Presionar la tecla ⬆️, le permitirá rotar 90° 🔄 el tetromino mientras cae.
 - Presionar la tecla ➡️, le permitirá mover el tetromino una celda hacia la derecha
