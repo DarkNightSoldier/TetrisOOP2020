@@ -6,6 +6,8 @@
 
 **Fecha de publicación:** 4 de octubre de 2020
 
+**Elaborado para:** Programación Orientada a Objetos
+
 **Versión:** 1
 
 ## Contenido
