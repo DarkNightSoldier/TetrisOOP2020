@@ -70,7 +70,9 @@ El tetromino activo se representa mediante un entero equivalente a su representa
 
 2. Codificamos su representacion matricial en binario mediante el formato Big Endian
 
+```java
 0000 0000 0100 0111
+```
 
 3. Encontramos el entero equivalente al número binario
 
@@ -80,9 +82,28 @@ Así nuestro tetromino se representa como el número **71**. Esta representació
 
 Asociamos al tetromino activo 4 variables enteras globales **type** (Tipo de tetromino), **x** (Posición en x), **y** (Posición en y) y **rotation** (Número de rotación).
 
-Las variables **type** y **rotation** corresponden a cada una de estas figuras de la tabla:
+Las variables **type** y **rotation** corresponden a cada una de estas figuras de la siguiente tabla:
 
 <p align="center"><img src="https://alejandrohiguera.codes/POO2020/rotations.png" width="75%"></p>
+
+Estas nos permitirán acceder al arreglo que contiene los enteros correspondientes a cada figura mediante:
+
+```java
+T[type][rotation]
+```
+Esto es aplicado en la siguiente función para dibujar cada tetromino:
+
+```java
+//Function to draw active tetromino figure
+void drawTetromino(){
+  fill(colorList[type]);
+  for(int i=0; i<=15;i++){
+    if((T[type][rotation] & (1<<15 - i)) != 0){
+      square(x-(((15-i)%4)*40),y-((15-i)/4)*40,40);
+    }
+  }
+}
+'''
 
 ## Representación de los tetrominos que han caído
 
