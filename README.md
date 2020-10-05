@@ -25,4 +25,4 @@ Como primera entrega para el curso de Programación Orientada a Objetos desarrol
 
 ## Objetivo
 
-Repasar los conceptos de programación estructurada, según lo descrito en [Tetris - Wikipedia Article](https://en.wikipedia.org/wiki/Tetris).
+- Repasar los conceptos de programación estructurada, según lo descrito en [Tetris - Wikipedia Article](https://en.wikipedia.org/wiki/Tetris).
