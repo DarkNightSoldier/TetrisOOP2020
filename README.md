@@ -104,9 +104,24 @@ void drawTetromino(){
   }
 }
 ```
-**Nota:** La matriz codificada en bytes a la que accedemos usando T[type][rotation] es leída de ¡Abajo hacia arriba! por eso se hace la resta 15-i.
 
-**Ejemplo de la función drawTetromino():**
+**Nota:** 
+- La matriz codificada en bytes a la que accedemos usando T[type][rotation] es leída de **¡Abajo hacia arriba!** por eso se hace la resta 15-i.
+- ```T[type][rotation] & (1<<15 - i)) != 0)``` El uso de esta máscara nos permite saber si una celda de la matriz está con 1 o 0.
+
+**Ejemplo del funcionamiento de la función drawTetromino():**
+
+Dibujar el tetromino asociado la rotación=1, tipo=3 (S), posición x=200 y y=240.
+
+Tenemos que T[3][1]=54, 54 en binario de 16 es ```0000 0000 0011 0110```  y así la matriz que lo representa es:
+
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix2.png" width="20%"></p>
+
+Y por lo tanto debemos dibujar 4 cuadrados con posiciones:
+**index 14**
+**index 13**
+**index 11**
+**index 10**
 
 ## Representación de los tetrominos que han caído
 
