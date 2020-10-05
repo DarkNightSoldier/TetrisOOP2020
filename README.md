@@ -15,7 +15,7 @@
 1. [Introducción](#introducción)
 2. [Objetivo](#objetivo)
 3. [¿Cómo jugar?](#cómo-jugar)
-4. [Puntuación](#3-puntuacion)
+4. [Puntuación](#3puntuacion)
 5. [¿Cómo se representa cada uno de los tetrominos activos?](#4-instalación-del-módulo)
 6. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#5-algunas-funcionalidades)
 
@@ -35,3 +35,13 @@ Una vez inicie el juego usted deberá manipular la posición de los tetrominos q
 - Presionar la tecla ⬇️, le permitirá aumentar la velocidad con que cae el tetromino.
 - Presionar la tecla ⬆️, le permitirá rotar 90° 🔄 el tetromino mientras cae.
 - Presionar la tecla ➡️, le permitirá mover el tetromino una celda hacia la derecha
+
+## Puntuación
+La puntuación se otorgará de acuerdo al número de líneas que se eliminan a la vez de acuerdo con la siguiente tabla:
+
+| Número de lineas eliminadas al mismo tiempo 	| Puntaje 	|
+|:-------------------------------------------:	|:-------:	|
+|                      1                      	|   100   	|
+|                      2                      	|   400   	|
+|                      3                      	|   900   	|
+|                  4 (Tetris)                 	|   1200  	|
