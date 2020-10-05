@@ -96,8 +96,8 @@ void tetrominoModify(int keyCode){
               }
               break;
           case DOWN:
-              if(positionVerify(rotation,x,y+1)){
-                y = y+4;
+              if(positionVerify(rotation,x,y+40)){
+                y = y+40;
               }
               break;
           case LEFT:
