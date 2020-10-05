@@ -61,6 +61,12 @@ void game(){
         textAlign(CENTER);
         textSize(36);
         text("Gracias por jugar",w/2,h/2); 
+        text("Presiona SPACE",w/2,h/2+50);
+        text("para otra partida",w/2,h/2+100);
+        //If space is pressed game is restarted
+        if(keyPressed & keyCode==0){
+           restartGame();
+        }
     }
 }
 
@@ -319,4 +325,11 @@ void addToScore(){
         break;
     }
     linesAtTime=0;
+}
+
+void restartGame(){
+  newTetromino();
+  score = 0; lines = 0;
+  matrixBoard = new byte[16][10];
+  stateGame = true;
 }
