@@ -16,8 +16,10 @@
 2. [Objetivo](#objetivo)
 3. [¿Cómo jugar?](#cómo-jugar)
 4. [Puntuación](#puntuación)
-5. [¿Cómo se representa cada uno de los tetrominos activos?](#4-instalación-del-módulo)
-6. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#5-algunas-funcionalidades)
+5. [¿Cómo se desplaza nuestro Tetromino?](#desplazamiento-del-tetromino)
+6. [¿Cómo se representa cada uno de los tetrominos activos?](#codificación-del-tetromino-activo)
+7. [¿Cómo dibujamos nuestro tetromino activo?](#dibujo-del-tetromino-activo)
+8. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#representación-de-los-tetrominos-que-han-caído)
 
 ## Introducción
 
@@ -46,6 +48,14 @@ La puntuación se otorgará de acuerdo al número de líneas que se eliminan a l
 |                      3                      	|   900   	|
 |                  4 (Tetris)                 	|   1200  	|
 
+## Desplazamiento del tetromino
+
+Los desplazamientos se manejan bajo el Framerate por default de Processing (60 fps).
+
+- **Desplazamiento hacia abajo** El tetromino se desplaza pixel a pixel.
+- **Desplazamiento hacia la derecha o hacia arriba** El tetromino se desplaza celda a celda es decir de 40 pixeles en 40 pixeles.
+- **Desplazamiento rápido hacia abajo** El tetromino se desplaza a una razón de 40 pixeles.
+
 ## Codificación del tetromino activo
 
 El tetromino activo se representa mediante un entero equivalente a su representación en bits matricial de tamaño 4x4, donde 0 es un bloque vacío y 1 es un bloque lleno.
@@ -56,15 +66,20 @@ El tetromino activo se representa mediante un entero equivalente a su representa
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="25%"></p>
 
 1. Encontramos su representacion matricial 4x4
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="10%"></p>
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="20%"></p>
 
-2. Codificamos su representacion matricial en binario en el formato Big Endian
+2. Codificamos su representacion matricial en binario mediante el formato Big Endian
 
 0000 0000 0100 0111
 
 3. Encontramos el entero equivalente al número binario
 
-Así nuestro tetromino se representa como el número **71**.
+Así nuestro tetromino se representa como el número **71**. Esta representación la tome del codeSnippet enviado por el profesor Jean Pierre Charalambos.
 
-## Desplazamiento del tetromino
+## Representación de los tetrominos que han caído
 
+Los tetrominos que ya han caído se almacenan en una variable global que es un arreglo bidimensional de bytes de 16x10 llamado **matrixBoard**.
+
+- El arreglo 2D va acorde al número de columnas y número de filas de nuestro tablero (16 filas x 10 columnas).
+- El arreglo 2D está a una escala de 1:40 respecto al tablero que es de tamaño 400x640 pixeles.
+- Para agregar los tetrominos a esta matrix se usa la función **addTetromino()**, este toma los valores con los que dibujamos cada cuadro/bloque del tetromino y los escala dividiendolos por 40.
