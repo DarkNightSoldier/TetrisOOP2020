@@ -53,9 +53,8 @@ El tetromino activo se representa mediante un entero equivalente a su representa
 **Ejemplo:**
 ¿Cómo se representa el tetromino j con la rotación 3?
 
-
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="25%"></p>
 
 
 ## Desplazamiento del tetromino
 
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="50%"></p>
