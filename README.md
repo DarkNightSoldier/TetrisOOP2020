@@ -20,7 +20,6 @@
 6. [¿Cómo se representa cada uno de los tetrominos activos?](#codificación-del-tetromino-activo)
 7. [¿Cómo dibujamos nuestro tetromino activo?](#dibujo-del-tetromino-activo)
 8. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#representación-de-los-tetrominos-que-han-caído)
-
 9. [Referencias](#referencias)
 
 ## Introducción
@@ -146,3 +145,6 @@ Los tetrominos que ya han caído se almacenan en una variable global que es un a
 1. Tetris Scoring - Tetris Wiki Fandom. Recuperado de: https://tetris.fandom.com/wiki/Scoring
 
 2. Jean Pierre Charalambos - Tetris Code Snippet https://gist.github.com/nakednous
+
+3. Somnuk Phon-Amnuaisuk - Different Rotations of Tetris
+https://www.researchgate.net/figure/Different-rotations-1-2-3-and-4-denote-0-90-180-and-270-degree-respectively-in_fig3_282476297
