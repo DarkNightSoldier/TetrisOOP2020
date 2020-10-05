@@ -58,7 +58,7 @@ El tetromino activo se representa mediante un entero equivalente a su representa
 1. Encontramos su representacion matricial 4x4
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="20%"></p>
 
-2. Codificamos su representacion matricial en binario en el formato Big Endian
+2. Codificamos su representacion matricial en binario mediante el formato Big Endian
 
 0000 0000 0100 0111
 
