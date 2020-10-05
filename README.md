@@ -58,6 +58,8 @@ Los desplazamientos se manejan bajo el Framerate por default de Processing (60 f
 
 **Nota** Para conocer si estos desplazamientos son posibles se genera un arreglo con las posiciones del tetromino activo y se verifica si estas están disponibles en el array 2D matrixBoard.
 
+<p align="center"><img src="https://alejandrohiguera.codes/POO2020/poxmatrix.png" width="40%"></p>
+
 ## Codificación del tetromino activo
 
 El tetromino activo se representa mediante un entero equivalente a su representación en bits matricial de tamaño 4x4, donde 0 es un bloque vacío y 1 es un bloque lleno.
