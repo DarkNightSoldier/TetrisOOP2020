@@ -4,6 +4,6 @@
 
 **Nombre:** Alejandro Higuera Castro
 
-**Fecha de publicación** 4 de octubre de 2020
+**Fecha de publicación:** 4 de octubre de 2020
 
-**Versión** 1
+**Versión:** 1
