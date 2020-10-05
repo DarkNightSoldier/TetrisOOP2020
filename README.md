@@ -90,7 +90,7 @@ Asociamos al tetromino activo 4 variables enteras globales **type** (Tipo de tet
 
 Las variables **type** y **rotation** corresponden a cada una de estas figuras de la siguiente tabla:
 
-<p align="center"><img src="https://alejandrohiguera.codes/POO2020/rotations.png" width="75%"></p>
+<p align="center"><img src="https://alejandrohiguera.codes/POO2020/rotations.png" width="85%"></p>
 
 Estas nos permitirán acceder al arreglo 2D que contiene los enteros correspondientes a cada figura mediante:
 
