@@ -65,7 +65,7 @@ Los desplazamientos se manejan bajo el Framerate por default de Processing (60 f
 El tetromino activo se representa mediante un entero equivalente a su representación en bits matricial de tamaño 4x4, donde 0 es un bloque vacío y 1 es un bloque lleno.
 
 **Ejemplo:**
-¿Cómo se representa el tetromino J con la rotación 1 (2)?
+¿Cómo se representa el tetromino J con la rotación 1?
 
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="25%"></p>
 
