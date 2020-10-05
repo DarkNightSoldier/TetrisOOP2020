@@ -65,7 +65,7 @@ Los desplazamientos se manejan bajo el Framerate por default de Processing (60 f
 El tetromino activo se representa mediante un entero equivalente a su representación en bits matricial de tamaño 4x4, donde 0 es un bloque vacío y 1 es un bloque lleno.
 
 **Ejemplo:**
-¿Cómo se representa el tetromino J con la rotación 3?
+¿Cómo se representa el tetromino J con la rotación 1 (2)?
 
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="25%"></p>
 
@@ -84,7 +84,8 @@ Así nuestro tetromino se representa como el número **71**. Esta representació
 
 ## Dibujo del tetromino activo
 
-Asociamos al tetromino activo 4 variables enteras globales **type** (Tipo de tetromino), **x** (Posición en x), **y** (Posición en y) y **rotation** (Número de rotación).
+Asociamos al tetromino activo 4 variables enteras globales **type** (Tipo de tetromino), **x** (Posición en x), **y** (Posición en y) y **rotation** (Número de 
+).
 
 Las variables **type** y **rotation** corresponden a cada una de estas figuras de la siguiente tabla:
 
@@ -115,7 +116,7 @@ void drawTetromino(){
 - <code>T[type][rotation] & (1<<15 - i)) != 0)</code> El uso de esta máscara nos permite saber si una celda de la matriz está con 1 o 0.
 
 #### Ejemplo del funcionamiento de la función drawTetromino():
-Dibujar el tetromino asociado la rotación=1, tipo=3 (S), posición x=200 y y=240.
+Dibujar el tetromino asociado la rotación=0, tipo=3 (S), posición x=200 y y=240.
 Tenemos que T[3][1]=54, 54 en binario de 16 es ```0000 0000 0011 0110```  y así la matriz que lo representa es:
 
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix2.png" width="20%"></p>
