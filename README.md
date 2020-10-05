@@ -56,8 +56,13 @@ El tetromino activo se representa mediante un entero equivalente a su representa
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="25%"></p>
 
 1. Encontramos su representacion matricial 4x4
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="25%"></p>
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="10%"></p>
 
+2. Codificamos su representacion matricial en binario en el formato Big Endian
+0000 0000 0100 0111
+
+3. Encontramos el entero equivalente al número binario
+Así nuestro tetromino se representa como el número 71.
 
 ## Desplazamiento del tetromino
 
