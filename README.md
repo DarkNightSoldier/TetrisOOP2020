@@ -103,7 +103,7 @@ void drawTetromino(){
     }
   }
 }
-'''
+```
 
 ## Representación de los tetrominos que han caído
 
