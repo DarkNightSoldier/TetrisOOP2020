@@ -59,7 +59,7 @@ Los desplazamientos se manejan bajo el Framerate por default de Processing (60 f
 
 **Nota** Para conocer si estos desplazamientos son posibles se genera un arreglo con las posiciones del tetromino activo y se verifica si estas están disponibles en el array 2D matrixBoard.
 
-<p align="center"><img src="https://alejandrohiguera.codes/POO2020/posmatrix.png" width="80%"></p>
+<p align="center"><img src="https://alejandrohiguera.codes/POO2020/posmatrix.png" width="90%"></p>
 
 ## Codificación del tetromino activo
 
@@ -71,7 +71,7 @@ El tetromino activo se representa mediante un entero equivalente a su representa
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="25%"></p>
 
 1. Encontramos su representacion matricial 4x4
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="20%"></p>
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="70%"></p>
 
 2. Codificamos su representacion matricial en binario mediante el formato Big Endian
 
@@ -113,14 +113,14 @@ void drawTetromino(){
 
 **Nota:** 
 - La matriz codificada en bytes a la que accedemos usando T[type][rotation] es leída de **¡Abajo hacia arriba!** por eso se hace la resta 15-i.
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/orden.png" width="70%"></p>
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/orden.png" width="90%"></p>
 - <code>T[type][rotation] & (1<<15 - i)) != 0)</code> El uso de esta máscara nos permite saber si una celda de la matriz está con 1 o 0.
 
 #### Ejemplo del funcionamiento de la función drawTetromino():
 Dibujar el tetromino asociado la rotación=0, tipo=3 (S), posición x=200 y y=240.
 Tenemos que T[3][1]=54, 54 en binario de 16 es ```0000 0000 0011 0110```  y así la matriz que lo representa es:
 
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix2.png" width="20%"></p>
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix2.png" width="50%"></p>
 
 Y por lo tanto debemos dibujar 4 cuadrados con posiciones:
 
