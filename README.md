@@ -56,6 +56,8 @@ Los desplazamientos se manejan bajo el Framerate por default de Processing (60 f
 - **Desplazamiento hacia la derecha o hacia arriba** El tetromino se desplaza celda a celda es decir de 40 pixeles en 40 pixeles.
 - **Desplazamiento rápido hacia abajo** El tetromino se desplaza a una razón de 40 pixeles.
 
+**Nota** Para conocer si estos desplazamientos son posibles se genera un arreglo con las posiciones del tetromino activo y se verifica si estas están disponibles en el array 2D matrixBoard.
+
 ## Codificación del tetromino activo
 
 El tetromino activo se representa mediante un entero equivalente a su representación en bits matricial de tamaño 4x4, donde 0 es un bloque vacío y 1 es un bloque lleno.
