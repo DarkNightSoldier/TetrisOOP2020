@@ -18,7 +18,8 @@
 4. [Puntuación](#puntuación)
 5. [¿Cómo se desplaza nuestro Tetromino?](#desplazamiento-del-tetromino)
 6. [¿Cómo se representa cada uno de los tetrominos activos?](#codificación-del-tetromino-activo)
-7. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#representación-de-los-tetrominos-que-han-caído)
+7. [¿Cómo dibujamos nuestro tetromino activo?](#dibujo-del-tetromino-activo)
+8. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#representación-de-los-tetrominos-que-han-caído)
 
 ## Introducción
 
