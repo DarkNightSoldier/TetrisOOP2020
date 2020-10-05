@@ -124,7 +124,7 @@ Y por lo tanto debemos dibujar 4 cuadrados con posiciones:
 - **index 10** square(200-(((15-10)%4)*40),240-((15-10)/4)*40,40) = square(160,200,40)
 
 Y de esta manera con estas instrucciones dibujaremos el siguiente tetromino:
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino2.png" width="60%"></p>
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino2.png" width="20%"></p>
 
 ## Representación de los tetrominos que han caído
 
