@@ -78,7 +78,11 @@ Así nuestro tetromino se representa como el número **71**. Esta representació
 
 ## Dibujo del tetromino activo
 
-<p align="center"><img src="https://alejandrohiguera.codes/POO2020/rotations.png" width="100%"></p>
+Asociamos al tetromino activo 4 variables enteras globales **type** (Tipo de tetromino), **x** (Posición en x), **y** (Posición en y) y **rotation** (Número de rotación).
+
+Las variables **type** y **rotation** corresponden a cada una de estas figuras de la tabla:
+
+<p align="center"><img src="https://alejandrohiguera.codes/POO2020/rotations.png" width="50%"></p>
 
 ## Representación de los tetrominos que han caído
 
