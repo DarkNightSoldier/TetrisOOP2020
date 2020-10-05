@@ -14,7 +14,7 @@
 
 1. [Introducción](#introducción)
 2. [Objetivo](#objetivo)
-3. [¿Cómo jugar?](#2-como-jugar)
+3. [¿Cómo jugar?](#cómo-jugar)
 4. [Puntuación](#3-puntuacion)
 5. [¿Cómo se representa cada uno de los tetrominos activos?](#4-instalación-del-módulo)
 6. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#5-algunas-funcionalidades)
