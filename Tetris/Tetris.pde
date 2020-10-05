@@ -1,5 +1,5 @@
 //Declare global variables associated with Tetromino Figure parameters
-int x,y,type,rotation,score,lastPress,linesAtTime,lines,nextFigure=(int) random(1,7);
+int x,y,type,rotation,score,lastPress,linesAtTime,lines,nextFigure=(int) random(1,8);
 //Declare the size of the board
 int w = 400, h = 640;
 //Declare global variable of the state of the game and button variable
@@ -16,13 +16,17 @@ int [][] T = {{},{15,4369,15,4369},
 color [] colorList = {#B9FFF0,#B9FFF0,#FFCA00,#A5FF00,#FF0D00,#6384FF,#F9FF35,#B279FF};
 //Declares a blank 2D array of bytes
 byte[][] matrixBoard = new byte[16][10];
+PFont tFont, ranchers;
 
 void settings(){
     size(w+200,h);
 }
 
 void setup(){
-  newTetromino();    
+  newTetromino();
+  tFont = createFont("tetris.ttf",70);
+  ranchers = createFont("ranchers.ttf",50);
+  textFont(ranchers);
 }
 
 void draw(){
@@ -158,12 +162,17 @@ void drawBoard(){
     }
     fill(38,114,237);
     rect(w,0,200,h);
-    textSize(24);
     fill(255);
     textAlign(LEFT);
+    textSize(40);
     text("Score",w+60,60);
-    text(score,w+80,100);
+    text(score,w+80,120);
+    text("Next",w+60,240);
+    pushStyle();
     showNextFigure();
+    popStyle();
+    text("Lines",w+60,440);
+    text(lines,w+80,500);
 }
 
 //Function to draw next figure
@@ -171,7 +180,7 @@ void showNextFigure(){
     fill(colorList[nextFigure]);
     for(int i=0; i<=15;i++){ 
       if((T[nextFigure][0] & (1<<15 - i)) != 0){
-        square(520-(((15-i)%4)*30),240-((15-i)/4)*30,30);
+        square(520-(((15-i)%4)*30),300-((15-i)/4)*30,30);
       }
     }
 }
@@ -226,8 +235,24 @@ void startScreenDisplay(){
     buttonDisplay(width/2,height/2);
     textSize(24);
     textAlign(CENTER);
-    text("Alejandro Higuera Castro",width/2,2*height/3);
-    text("Prof. JP Charalambos",width/2,2*height/3+50);
+    //Tetris logo
+    pushStyle();
+    textFont(tFont);
+    fill(#a10117);
+    text("T",width/2-120,250);
+    fill(#c26d00);
+    text("E",width/2-55,250);
+    fill(#b9b514);
+    text("T",width/2-5,250);
+    fill(#0178bc);
+    text("I",width/2+90,250);
+    fill(#7dc10b);
+    text("R",width/2+60,250);
+    fill(#b202de);
+    text("S",width/2+130,250);
+    popStyle();
+    text("Alejandro  Higuera  Castro",width/2,2*height/3);
+    text("Prof.  JP  Charalambos",width/2,2*height/3+50);
 }
 
 //Function to display the button and know if it is pressed
