@@ -110,8 +110,7 @@ void drawTetromino(){
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/orden.png" width="30%"></p>
 - <code>T[type][rotation] & (1<<15 - i)) != 0)</code> El uso de esta máscara nos permite saber si una celda de la matriz está con 1 o 0.
 
-**Ejemplo del funcionamiento de la función drawTetromino():**
-
+#### Ejemplo del funcionamiento de la función drawTetromino():
 Dibujar el tetromino asociado la rotación=1, tipo=3 (S), posición x=200 y y=240.
 Tenemos que T[3][1]=54, 54 en binario de 16 es ```0000 0000 0011 0110```  y así la matriz que lo representa es:
 
