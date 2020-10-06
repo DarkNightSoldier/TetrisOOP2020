@@ -16,7 +16,8 @@ int [][] T = {{},{15,4369,15,4369},
 color [] colorList = {#B9FFF0,#B9FFF0,#FFCA00,#A5FF00,#FF0D00,#6384FF,#F9FF35,#B279FF};
 //Declares a blank 2D array of bytes
 byte[][] matrixBoard = new byte[16][10];
-PFont tFont, ranchers;
+PFont tFont, acme;
+PImage img;
 
 void settings(){
     size(w+200,h);
@@ -25,8 +26,10 @@ void settings(){
 void setup(){
   newTetromino();
   tFont = createFont("tetris.ttf",70);
-  ranchers = createFont("ranchers.ttf",50);
-  textFont(ranchers);
+  acme = createFont("Acme.ttf",50);
+  img = loadImage("background.jpg");
+  image(img, 0, 0);
+  textFont(acme);
 }
 
 void draw(){
@@ -50,14 +53,12 @@ void game(){
           verifyAndDrop();
           newTetromino();
       }
-      if(keyPressed & (millis()-lastPress>500)){
+      if(keyPressed & (millis()-lastPress>200)){
           tetrominoModify(keyCode);
           lastPress = millis();
       }
     }else{
-        fill(0,0,0,1);
-        rect(0,0,width,height);
-        fill(0);
+        fill(26,13,210);
         textAlign(CENTER);
         textSize(36);
         text("Gracias por jugar",w/2,h/2); 
@@ -157,17 +158,17 @@ boolean positionVerify(int newRotation, int newX, int newY){
 
 //Function that draws the board and its grid
 void drawBoard(){
+    image(img, 0, 0);
     fill(255);
-    rect(0,0,w,h);
     noFill();
-    for (int i = 0; i <w ; i = i + 40){
+    stroke(255);
+    for (int i = 0; i <=w ; i = i + 40){
         line(i,0,i,h);
     }
     for (int j = 0; j <h ; j = j + 40){
         line(0,j,w,j);
     }
     fill(38,114,237);
-    rect(w,0,200,h);
     fill(255);
     textAlign(LEFT);
     textSize(40);
@@ -236,8 +237,8 @@ int[] xMinMax(int x){
 
 //Function to display game initial screen
 void startScreenDisplay(){
-    background(255);
-    fill(0);
+    image(img,0,0);
+    fill(255);
     buttonDisplay(width/2,height/2);
     textSize(24);
     textAlign(CENTER);
@@ -264,7 +265,7 @@ void startScreenDisplay(){
 //Function to display the button and know if it is pressed
 void buttonDisplay(int x,int y){
     pushStyle();
-    fill(255);
+    fill(0);
     rect(x-60,y-20,100,40,7);
     popStyle();
     textSize(24);
