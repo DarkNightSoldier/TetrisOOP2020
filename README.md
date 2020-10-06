@@ -20,6 +20,7 @@
 6. [¿Cómo se representa cada uno de los tetrominos activos?](#codificación-del-tetromino-activo)
 7. [¿Cómo dibujamos nuestro tetromino activo?](#dibujo-del-tetromino-activo)
 8. [¿Cómo se almacenan y leen los tetrominos que ya han caído?](#representación-de-los-tetrominos-que-han-caído)
+9. [Referencias](#referencias)
 
 ## Introducción
 
@@ -56,17 +57,21 @@ Los desplazamientos se manejan bajo el Framerate por default de Processing (60 f
 - **Desplazamiento hacia la derecha o hacia arriba** El tetromino se desplaza celda a celda es decir de 40 pixeles en 40 pixeles.
 - **Desplazamiento rápido hacia abajo** El tetromino se desplaza a una razón de 40 pixeles.
 
+**Nota** Para conocer si estos desplazamientos son posibles se genera un arreglo con las posiciones del tetromino activo y se verifica si estas están disponibles en el array 2D matrixBoard.
+
+<p align="center"><img src="https://alejandrohiguera.codes/POO2020/posmatrix.png" width="75%"></p>
+
 ## Codificación del tetromino activo
 
 El tetromino activo se representa mediante un entero equivalente a su representación en bits matricial de tamaño 4x4, donde 0 es un bloque vacío y 1 es un bloque lleno.
 
 **Ejemplo:**
-¿Cómo se representa el tetromino J con la rotación 3?
+¿Cómo se representa el tetromino J con la rotación 1?
 
 <p align="left"><img src="https://alejandrohiguera.codes/POO2020/tetromino.png" width="25%"></p>
 
 1. Encontramos su representacion matricial 4x4
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="20%"></p>
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix.png" width="70%"></p>
 
 2. Codificamos su representacion matricial en binario mediante el formato Big Endian
 
@@ -80,11 +85,12 @@ Así nuestro tetromino se representa como el número **71**. Esta representació
 
 ## Dibujo del tetromino activo
 
-Asociamos al tetromino activo 4 variables enteras globales **type** (Tipo de tetromino), **x** (Posición en x), **y** (Posición en y) y **rotation** (Número de rotación).
+Asociamos al tetromino activo 4 variables enteras globales **type** (Tipo de tetromino), **x** (Posición en x), **y** (Posición en y) y **rotation** (Número de 
+).
 
 Las variables **type** y **rotation** corresponden a cada una de estas figuras de la siguiente tabla:
 
-<p align="center"><img src="https://alejandrohiguera.codes/POO2020/rotations.png" width="75%"></p>
+<p align="center"><img src="https://alejandrohiguera.codes/POO2020/rotations.png" width="85%"></p>
 
 Estas nos permitirán acceder al arreglo 2D que contiene los enteros correspondientes a cada figura mediante:
 
@@ -107,14 +113,14 @@ void drawTetromino(){
 
 **Nota:** 
 - La matriz codificada en bytes a la que accedemos usando T[type][rotation] es leída de **¡Abajo hacia arriba!** por eso se hace la resta 15-i.
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/orden.png" width="30%"></p>
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/orden.png" width="90%"></p>
 - <code>T[type][rotation] & (1<<15 - i)) != 0)</code> El uso de esta máscara nos permite saber si una celda de la matriz está con 1 o 0.
 
 #### Ejemplo del funcionamiento de la función drawTetromino():
-Dibujar el tetromino asociado la rotación=1, tipo=3 (S), posición x=200 y y=240.
+Dibujar el tetromino asociado la rotación=0, tipo=3 (S), posición x=200 y y=240.
 Tenemos que T[3][1]=54, 54 en binario de 16 es ```0000 0000 0011 0110```  y así la matriz que lo representa es:
 
-<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix2.png" width="20%"></p>
+<p align="left"><img src="https://alejandrohiguera.codes/POO2020/matrix2.png" width="50%"></p>
 
 Y por lo tanto debemos dibujar 4 cuadrados con posiciones:
 
@@ -133,3 +139,12 @@ Los tetrominos que ya han caído se almacenan en una variable global que es un a
 - El arreglo 2D va acorde al número de columnas y número de filas de nuestro tablero (16 filas x 10 columnas).
 - El arreglo 2D está a una escala de 1:40 respecto al tablero que es de tamaño 400x640 pixeles.
 - Para agregar los tetrominos a esta matrix se usa la función **addTetromino()**, este toma los valores con los que dibujamos cada cuadro/bloque del tetromino y los escala dividiendolos por 40.
+
+## Referencias
+
+1. Tetris Scoring - Tetris Wiki Fandom. Recuperado de: https://tetris.fandom.com/wiki/Scoring
+
+2. Jean Pierre Charalambos - Tetris Code Snippet https://gist.github.com/nakednous
+
+3. Somnuk Phon-Amnuaisuk - Different Rotations of Tetris
+https://www.researchgate.net/figure/Different-rotations-1-2-3-and-4-denote-0-90-180-and-270-degree-respectively-in_fig3_282476297
