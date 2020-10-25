@@ -58,7 +58,9 @@ void game(){
           lastPress = millis();
       }
     }else{
-        fill(26,13,210);
+        fill(0,0,0,1);
+        rect(0,0,width,height);
+        fill(255);
         textAlign(CENTER);
         textSize(36);
         text("Gracias por jugar",w/2,h/2); 
@@ -120,7 +122,7 @@ void tetrominoModify(int keyCode){
        }
 }
 
-//Function to verify if position is avaialable according to existing blocks
+//Function to verify if position is available according to existing blocks
 boolean positionVerify(int newRotation, int newX, int newY){
   boolean available = true, yLimit = true;
   int[][] arrayPos = new int[2][4];
@@ -132,6 +134,7 @@ boolean positionVerify(int newRotation, int newX, int newY){
       pos++;
     }
   }
+  //Verify if tetromino is in the board
   for(pos=0; pos<=3;pos++){
     if(arrayPos[1][pos]>h-40){
       available = false;
@@ -206,7 +209,7 @@ void addTetromino(){
   }
 }
 
-//Function to draw all tetrominos who have fallen
+//Function to draw all tetrominos which have fallen
 void drawAll(){
   for (int row = 0; row < matrixBoard.length;row++){
     for (int col = 0; col < matrixBoard[row].length;col++){
